@@ -9,6 +9,9 @@ do (window) ->
         , false
 
     emit: (targets, message) ->
+      if arguments.length is 1
+        message = arguments[0]
+        targets = [ '*' ]
       return  unless typeof message is 'string' #todo 应支持任意obj
       if targets = _parseToArray(targets)
         window.postMessage message, target for target in targets
