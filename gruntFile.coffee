@@ -31,11 +31,13 @@ module.exports = (grunt) ->
       all:
         src: "asset/**/*"
 
-    mocha:
+    blanket_mocha:
       test:
         src: ['test/**/*.html']
         options:
           run: true
+          threshold: 90
+          excludedFiles: []
 
   grunt.registerTask "build", [
     'clean'
@@ -44,7 +46,7 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "test", [
-    'mocha'
+    'blanket_mocha'
   ]
 
   grunt.registerTask "default", [
