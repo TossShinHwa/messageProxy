@@ -5,12 +5,20 @@ module.exports = (grunt) ->
     coffee:
       options:
         bare: true
-      client:
+      main:
         files: [
           expand: true
           cwd: 'lib/'
           src: '**/*.coffee'
           dest: 'assets/'
+          ext: '.js'
+        ]
+      test:
+        files: [
+          expand: true
+          cwd: 'test/'
+          src: '**/*.coffee'
+          dest: 'test/'
           ext: '.js'
         ]
 
@@ -23,6 +31,11 @@ module.exports = (grunt) ->
       all:
         src: "asset/**/*"
 
+    mocha:
+      test:
+        src: ['test/**/*.html']
+        options:
+          run: true
 
   grunt.registerTask "build", [
     'clean'
@@ -31,9 +44,10 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "test", [
-
+    'mocha'
   ]
 
   grunt.registerTask "default", [
     'build'
+    'test'
   ]
