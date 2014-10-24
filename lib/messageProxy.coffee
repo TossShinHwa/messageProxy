@@ -1,9 +1,9 @@
 do (window) ->
   messageProxy =
-    on: ->
+    on: (name, source, listener)->
 
-    emit: ->
+    emit: (name, target, args)->
 
-    remove: ->
+    destroy: (name) ->
 
   window.messageProxy = window.messageProxy || messageProxy
