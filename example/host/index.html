@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="messageProxy.js"></script>
+  <title>host</title>
+</head>
+<body>
+
+<div><iframe name="child" id="child" src="http://localhost:30001/index.html"></iframe></div>
+<div><button id="emit">emit</button></div>
+
+<script>
+    document.getElementById('emit').onclick = function(){
+        messageProxy.emit('hostClick', 'host emit a event.')
+    }
+</script>
+
+</body>
+</html>

@@ -3,21 +3,25 @@ module.exports = (grunt) ->
 
   grunt.initConfig
     connect:
-      public:
+      host:
         options:
           port: 30000
           hostname: 'localhost'
-          base:''
-
+          base:'host'
+      guest:
+        options:
+          port: 30001
+          hostname: 'localhost'
+          base:'guest'
     open:
       server:
-        url:'http://localhost:30000/host.html'
+        url:'http://localhost:30000'
 
     watch:
       options:
         livereload: 30003
       clientFile:
-        files: ['**/*']
+        files: ['**/*.html']
         tasks: []
 
   grunt.registerTask "default", [
