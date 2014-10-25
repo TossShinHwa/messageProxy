@@ -11,11 +11,11 @@ describe "on", ->
 
 describe "emit", ->
   it "should emit event", (done) ->
-    messageProxy.on 'a message to all'
+    messageProxy.emit 'a message to all'
     done()
   it "should emit event when targets is string", (done) ->
-    messageProxy.on 'http://localhost:4000', 'a message to 4000'
+    messageProxy.emit 'http://localhost:4000', 'a message to 4000'
     done()
-  it "should emit event when targets is string", (done) ->
-    messageProxy.on ['http://localhost:4000', 'http://localhost:4001'], 'a message to 4000 & 4001'
+  it "should emit event when targets is array", (done) ->
+    messageProxy.emit ['http://localhost:4000', 'http://localhost:4001'], 'a message to 4000 & 4001'
     done()

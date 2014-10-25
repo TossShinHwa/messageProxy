@@ -35,9 +35,8 @@ module.exports = (grunt) ->
       test:
         src: ['test/**/*.html']
         options:
-          run: true
           threshold: 90
-          excludedFiles: []
+          run: false
 
   grunt.registerTask "build", [
     'clean'
